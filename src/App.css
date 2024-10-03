@@ -17,5 +17,7 @@ input {
 
 button {
   display: block;
+  width: 10rem;
+  height: 10rem;
   margin-top: 10px;
 }

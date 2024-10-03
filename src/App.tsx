@@ -5,6 +5,13 @@ const App: React.FC = () => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [position, setPosition] = useState({ top: '50%', left: '50%' });
+
+  const moveButton = () => {
+    const randomTop = Math.random() * 80 + 10 + '%';
+    const randomLeft = Math.random() * 80 + 10 + '%';
+    setPosition({ top: randomTop, left: randomLeft });
+  };
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -40,7 +47,17 @@ const App: React.FC = () => {
               required
             />
           </div>
-          <button type="submit">Enter</button>
+          <button
+            type="submit"
+            onMouseEnter={moveButton} // Moves the button when hovered over
+            style={{
+              position: 'absolute',
+              top: position.top,
+              left: position.left,
+            }}
+          >
+            Enter
+          </button>
         </form>
       )}
     </div>
